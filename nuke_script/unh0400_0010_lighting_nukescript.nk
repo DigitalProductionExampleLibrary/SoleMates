@@ -1,0 +1,2933 @@
+#write_info Write1 file:"../exr_sequences/unh0400_0010_lighting.%04d.exr" format:"2048 1024 1" chans:":rgba.red:rgba.green:rgba.blue:" framerange:"1037 1037" fps:"0" colorspace:"aces_interchange	aces_interchange (ACES2065-1)" datatype:"16 bit half" transfer:"unknown" views:"main" colorManagement:"OCIO"
+version 14.1 v4
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="4056" y="0" w="2560" h="1411" maximized="1" screen="2">
+        <splitter orientation="1">
+            <split size="52"/>
+            <dock id="" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1498" stretch="1"/>
+            <splitter orientation="2">
+                <split size="802"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="563"/>
+                <dock id="" activePageId="DAG.1" focus="true">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="1002"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+                <page id="uk.co.thefoundry.backgroundrenderview.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name unh0400_0010_lighting_nukescript.nk
+ project_directory "\[python \{nuke.script_directory()\}]"
+ frame 1037
+ first_frame 1037
+ last_frame 1037
+ lock_range true
+ format "2048 1024 0 0 2048 1024 1 project"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ colorManagement OCIO
+ OCIO_config fn-nuke_cg-config-v1.0.0_aces-v1.3_ocio-v2.1
+ defaultViewerLUT "OCIO LUTs"
+ workingSpaceLUT scene_linear
+ monitorLut "ACES 1.0 - SDR Video (sRGB - Display)"
+ monitorOutLUT "ACES 1.0 - SDR Video (sRGB - Display)"
+ int8Lut matte_paint
+ int16Lut texture_paint
+ logLut compositing_log
+ floatLut scene_linear
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode1
+ tile_color 0x9536aaff
+ label "Final Grade"
+ note_font_size 42
+ xpos 1162
+ ypos 1059
+ bdwidth 487
+ bdheight 227
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode2
+ tile_color 0x9eaa46ff
+ label Effects
+ note_font_size 42
+ xpos 1157
+ ypos 1366
+ bdwidth 487
+ bdheight 227
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode4
+ tile_color 0xc68c67ff
+ label "Sparks\n"
+ note_font_size 42
+ xpos 429
+ ypos 380
+ bdwidth 277
+ bdheight 260
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../particle_elements/sparks_render/sparks_final.1037.exr
+ format "2048 1024 0 0 2048 1024 1 project"
+ origset true
+ name Read1
+ xpos 517
+ ypos 460
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_vol__all_layer_frames_v005/unh0400_0010_render_lighting_vol__all_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read34
+ xpos -569
+ ypos -10744
+}
+Dot {
+ name Dot49
+ label vol_all
+ note_font_size 150
+ xpos -535
+ ypos -10648
+}
+Dot {
+ name Dot96
+ xpos -535
+ ypos -4885
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T vol__all_Dot_96}
+ addUserKnob {26 PassName -STARTLINE T vol__all}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_vol__all__sun_02_layer_frames_v005/unh0400_0010_render_lighting_vol__all__sun_02_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read39
+ xpos 312
+ ypos -6431
+}
+Dot {
+ name Dot85
+ label "    sun_02"
+ note_font_size 80
+ xpos 346
+ ypos -6284
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove35
+ label rgba
+ xpos 310
+ ypos -6140
+}
+Dot {
+ name Dot86
+ xpos 345
+ ypos -6004
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T vol__all_Dot_77}
+ addUserKnob {26 PassName -STARTLINE T vol__all}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_vol__all__sun_layer_frames_v005/unh0400_0010_render_lighting_vol__all__sun_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read38
+ xpos 311
+ ypos -7212
+}
+Dot {
+ name Dot83
+ label "    sun"
+ note_font_size 80
+ xpos 345
+ ypos -7083
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove34
+ label rgba
+ xpos 311
+ ypos -6944
+}
+Dot {
+ name Dot84
+ xpos 345
+ ypos -6796
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T vol__all_Dot_69}
+ addUserKnob {26 PassName -STARTLINE T vol__all}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_vol__all__env_windows_layer_frames_v005/unh0400_0010_render_lighting_vol__all__env_windows_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read37
+ xpos 311
+ ypos -8110
+}
+Dot {
+ name Dot75
+ label "    env_windows"
+ note_font_size 80
+ xpos 345
+ ypos -7983
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove33
+ label rgba
+ xpos 311
+ ypos -7854
+}
+Dot {
+ name Dot76
+ xpos 345
+ ypos -7684
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T vol__all_Dot_37}
+ addUserKnob {26 PassName -STARTLINE T vol__all}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_vol__all__env_top_layer_frames_v005/unh0400_0010_render_lighting_vol__all__env_top_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read36
+ xpos 318
+ ypos -8888
+}
+Dot {
+ name Dot73
+ label "    env_top"
+ note_font_size 80
+ xpos 352
+ ypos -8777
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove32
+ label rgba
+ xpos 318
+ ypos -8626
+}
+Dot {
+ name Dot74
+ xpos 352
+ ypos -8476
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T vol__all_Dot_29}
+ addUserKnob {26 PassName -STARTLINE T vol__all}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_vol__all__env_layer_frames_v005/unh0400_0010_render_lighting_vol__all__env_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read35
+ xpos 311
+ ypos -9637
+}
+Dot {
+ name Dot71
+ label "    env"
+ note_font_size 80
+ xpos 345
+ ypos -9515
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove31
+ label rgba
+ xpos 311
+ ypos -9406
+}
+Dot {
+ name Dot72
+ xpos 345
+ ypos -9268
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T vol__all_Dot_21}
+ addUserKnob {26 PassName -STARTLINE T vol__all}
+}
+push 0
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus30
+ label "<font color=white>except Alpha A"
+ xpos 1411
+ ypos -9282
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T vol__all_Merge2_22}
+ addUserKnob {26 PassName -STARTLINE T vol__all}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus31
+ label "<font color=white>except Alpha A"
+ xpos 1411
+ ypos -8490
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T vol__all_Merge2_30}
+ addUserKnob {26 PassName -STARTLINE T vol__all}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus32
+ label "<font color=white>except Alpha A"
+ xpos 1411
+ ypos -7698
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T vol__all_Merge2_38}
+ addUserKnob {26 PassName -STARTLINE T vol__all}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus36
+ label "<font color=white>except Alpha A"
+ xpos 1411
+ ypos -6810
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T vol__all_Merge2_70}
+ addUserKnob {26 PassName -STARTLINE T vol__all}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus37
+ label "<font color=white>except Alpha A"
+ xpos 1411
+ ypos -6018
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T vol__all_Merge2_78}
+ addUserKnob {26 PassName -STARTLINE T vol__all}
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy5
+ xpos 1411
+ ypos -4889
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char_layer_frames_v006/unh0400_0010_render_lighting_bty__char_layer_frames_v006.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read17
+ xpos -5387
+ ypos -19348
+}
+Dot {
+ name Dot45
+ label bty__char
+ note_font_size 150
+ xpos -5353
+ ypos -19194
+}
+Dot {
+ name Dot121
+ xpos -5353
+ ypos -16322
+}
+set Ncf2e480 [stack 0]
+Dot {
+ name Dot54
+ xpos -5363
+ ypos -12965
+}
+set Nebcdaf0 [stack 0]
+Dot {
+ name Dot124
+ xpos -5363
+ ypos -11716
+}
+set Nebd2ce0 [stack 0]
+Dot {
+ name Dot46
+ xpos -5337
+ ypos -6216
+}
+set Nebd7e80 [stack 0]
+Dot {
+ name Dot117
+ xpos -5337
+ ypos -5273
+}
+set Nebdd020 [stack 0]
+Dot {
+ name Dot126
+ xpos -5337
+ ypos -4419
+}
+set Nebe21c0 [stack 0]
+Dot {
+ name Dot119
+ xpos -5353
+ ypos -3450
+}
+push $Nebe21c0
+Cryptomatte {
+ cryptoLayerChoice {{1} CryptoInstance CryptoUserData_shotObject}
+ manifestSourceExtended "Metadata Embedded"
+ pickerAdd {0.05351698399 0.1062717438 0.1750869751 0 1331 439 1332 440}
+ matteList <-1.83143407149e-24>
+ lastSelectedCryptoLayerName CryptoUserData_shotObject
+ name Cryptomatte7
+ xpos -4806
+ ypos -4423
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char_cine__char_rim_layer_frames_v004/unh0400_0010_render_lighting_bty__char_cine__char_rim_layer_frames_v004.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read33
+ xpos -4508
+ ypos -4755
+}
+Dot {
+ name Dot109
+ label "    char_rim"
+ note_font_size 80
+ xpos -4474
+ ypos -4638
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove30
+ label rgba
+ xpos -4508
+ ypos -4540
+}
+Grade {
+ inputs 1+1
+ white 0.5
+ name Grade13
+ xpos -4508
+ ypos -4423
+}
+Dot {
+ name Dot110
+ xpos -4473
+ ypos -4256
+}
+push $Nebdd020
+Dot {
+ name Dot122
+ xpos -4886
+ ypos -5273
+}
+set Nc4501e0 [stack 0]
+Dot {
+ name Dot123
+ xpos -4886
+ ypos -5329
+}
+add_layer {surfaceColor surfaceColor.red surfaceColor.green surfaceColor.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 surfaceColor
+ fromInput2 {{0} B}
+ mappings "4 surfaceColor.red 0 0 rgba.red 0 0 surfaceColor.green 0 1 rgba.green 0 1 surfaceColor.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle7
+ label "\[value in1]"
+ xpos -4632
+ ypos -5339
+}
+set Nc45c230 [stack 0]
+Dot {
+ name Dot43
+ xpos -4598
+ ypos -5219
+}
+push $Nc4501e0
+Cryptomatte {
+ cryptoLayerChoice {{1} CryptoInstance CryptoUserData_shotObject}
+ manifestSourceExtended "Metadata Embedded"
+ pickerAdd {0.05351698399 0.1062717438 0.1750869751 0 1331 439 1332 440}
+ matteList <-1.83143407149e-24>
+ lastSelectedCryptoLayerName CryptoUserData_shotObject
+ name Cryptomatte6
+ xpos -4799
+ ypos -5277
+}
+set Nc46aaa0 [stack 0]
+push $Nc46aaa0
+Dot {
+ name Dot125
+ xpos -4765
+ ypos -5408
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char_cine__char_rim_02_layer_frames_v004/unh0400_0010_render_lighting_bty__char_cine__char_rim_02_layer_frames_v004.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read32
+ xpos -4508
+ ypos -5788
+}
+Dot {
+ name Dot111
+ label "    char_rim_02"
+ note_font_size 80
+ xpos -4474
+ ypos -5654
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove29
+ label rgba
+ xpos -4508
+ ypos -5538
+}
+Grade {
+ inputs 1+1
+ white 8
+ name Grade12
+ xpos -4508
+ ypos -5412
+}
+push $Nc45c230
+Merge2 {
+ inputs 2
+ operation divide
+ metainput All
+ also_merge all
+ name Merge15
+ xpos -4507
+ ypos -5333
+}
+Saturation {
+ inputs 1+1
+ saturation 0
+ name Saturation6
+ xpos -4507
+ ypos -5277
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ metainput All
+ name Merge16
+ xpos -4507
+ ypos -5223
+}
+Dot {
+ name Dot112
+ xpos -4473
+ ypos -5144
+}
+push $Nebd7e80
+Dot {
+ name Dot91
+ xpos -5116
+ ypos -6216
+}
+set Nc1f8530 [stack 0]
+Dot {
+ name Dot92
+ xpos -5116
+ ypos -6272
+}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 surfaceColor
+ fromInput2 {{0} B}
+ mappings "4 surfaceColor.red 0 0 rgba.red 0 0 surfaceColor.green 0 1 rgba.green 0 1 surfaceColor.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle6
+ label "\[value in1]"
+ xpos -4636
+ ypos -6282
+}
+set Nc202830 [stack 0]
+Dot {
+ name Dot28
+ xpos -4602
+ ypos -6162
+}
+push $Nc1f8530
+Cryptomatte {
+ cryptoLayerChoice {{1} CryptoInstance CryptoUserData_shotObject}
+ manifestSourceExtended "Metadata Embedded"
+ pickerAdd {0.05351698399 0.1062717438 0.1750869751 0 1331 439 1332 440}
+ matteList <-1.83143407149e-24>
+ lastSelectedCryptoLayerName CryptoUserData_shotObject
+ name Cryptomatte5
+ xpos -4803
+ ypos -6220
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char_cine__char_wrap_layer_frames_v004/unh0400_0010_render_lighting_bty__char_cine__char_wrap_layer_frames_v004.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read31
+ xpos -4511
+ ypos -6661
+}
+Dot {
+ name Dot113
+ label "    char_wrap"
+ note_font_size 80
+ xpos -4477
+ ypos -6532
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove28
+ label rgba
+ xpos -4511
+ ypos -6410
+}
+push $Nc202830
+Merge2 {
+ inputs 2
+ operation divide
+ metainput All
+ also_merge all
+ name Merge13
+ xpos -4511
+ ypos -6276
+}
+Saturation {
+ inputs 1+1
+ saturation 0
+ name Saturation5
+ xpos -4511
+ ypos -6220
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ metainput All
+ name Merge14
+ xpos -4511
+ ypos -6166
+}
+Dot {
+ name Dot114
+ xpos -4477
+ ypos -6056
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char_cine__p_cast_layer_frames_v001/unh0400_0010_render_lighting_bty__char_cine__p_cast_layer_frames_v001.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read30
+ xpos -4500
+ ypos -7396
+}
+Dot {
+ name Dot105
+ label "    p_cast"
+ note_font_size 80
+ xpos -4466
+ ypos -7263
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove27
+ label rgba
+ xpos -4503
+ ypos -7138
+}
+Dot {
+ name Dot106
+ xpos -4466
+ ypos -6992
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char_cine__p_source_layer_frames_v001/unh0400_0010_render_lighting_bty__char_cine__p_source_layer_frames_v001.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read29
+ xpos -4507
+ ypos -8311
+}
+Dot {
+ name Dot107
+ label "    p_source"
+ note_font_size 80
+ xpos -4473
+ ypos -8179
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove26
+ label rgba
+ xpos -4507
+ ypos -8048
+}
+Dot {
+ name Dot108
+ xpos -4473
+ ypos -7904
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char_cine__control_boost_layer_frames_v004/unh0400_0010_render_lighting_bty__char_cine__control_boost_layer_frames_v004.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read28
+ xpos -4507
+ ypos -9211
+}
+Dot {
+ name Dot115
+ label "    control_boost"
+ note_font_size 80
+ xpos -4473
+ ypos -9089
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove25
+ label rgba
+ xpos -4508
+ ypos -8940
+}
+Dot {
+ name Dot116
+ xpos -4473
+ ypos -8768
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char_cine__fill_carspot_layer_frames_v004/unh0400_0010_render_lighting_bty__char_cine__fill_carspot_layer_frames_v004.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read27
+ xpos -4507
+ ypos -10004
+}
+Dot {
+ name Dot87
+ label "    fill_carspot"
+ note_font_size 80
+ xpos -4473
+ ypos -9899
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove24
+ label rgba
+ xpos -4507
+ ypos -9771
+}
+Dot {
+ name Dot88
+ xpos -4473
+ ypos -9632
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char_cine__flash_bang_layer_frames_v004/unh0400_0010_render_lighting_bty__char_cine__flash_bang_layer_frames_v004.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read26
+ xpos -4507
+ ypos -10894
+}
+Dot {
+ name Dot103
+ label "    flash_bang"
+ note_font_size 80
+ xpos -4473
+ ypos -10798
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove23
+ label rgba
+ xpos -4507
+ ypos -10694
+}
+Grade {
+ white {{curve x1029 0.000977 2 x1040 2.195942 x1044 2.378414 x1045 256 112.58063 14.438529 1}}
+ multiply {{"(noise((frame+1)/2)+1)/2 * (1-0.2) + 0.7"}}
+ name Grade9
+ xpos -4507
+ ypos -10616
+}
+Dot {
+ name Dot104
+ xpos -4473
+ ypos -10520
+}
+push $Nebd2ce0
+Dot {
+ name Dot77
+ xpos -5133
+ ypos -11716
+}
+set Ne991cf0 [stack 0]
+Dot {
+ name Dot29
+ xpos -5133
+ ypos -11772
+}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 surfaceColor
+ fromInput2 {{0} B}
+ mappings "4 surfaceColor.red 0 0 rgba.red 0 0 surfaceColor.green 0 1 rgba.green 0 1 surfaceColor.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle2
+ label "\[value in1]"
+ xpos -4653
+ ypos -11782
+}
+set Ne99c0a0 [stack 0]
+push $Ne991cf0
+Cryptomatte {
+ cryptoLayerChoice {{1} CryptoInstance CryptoUserData_shotObject}
+ manifestSourceExtended "Metadata Embedded"
+ pickerAdd {0.05351698399 0.1062717438 0.1750869751 0 1331 439 1332 440}
+ matteList <-1.83143407149e-24>
+ lastSelectedCryptoLayerName CryptoUserData_shotObject
+ name Cryptomatte4
+ xpos -4820
+ ypos -11720
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char__bounce_ground_layer_frames_v006/unh0400_0010_render_lighting_bty__char__bounce_ground_layer_frames_v006.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read25
+ xpos -4527
+ ypos -12039
+}
+Dot {
+ name Dot120
+ label "    bounce_ground"
+ note_font_size 80
+ xpos -4493
+ ypos -11923
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove22
+ label rgba
+ xpos -4527
+ ypos -11871
+}
+push $Ne99c0a0
+Merge2 {
+ inputs 2
+ operation divide
+ metainput All
+ also_merge all
+ name Merge11
+ xpos -4528
+ ypos -11776
+}
+Saturation {
+ inputs 1+1
+ saturation 0
+ name Saturation4
+ xpos -4528
+ ypos -11720
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ metainput All
+ name Merge12
+ xpos -4528
+ ypos -11666
+}
+Dot {
+ name Dot30
+ xpos -4494
+ ypos -11480
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Dot_14}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+push $Nebcdaf0
+Dot {
+ name Dot63
+ xpos -5139
+ ypos -12965
+}
+set Nea1e800 [stack 0]
+Cryptomatte {
+ cryptoLayerChoice {{1} CryptoInstance CryptoUserData_shotObject}
+ manifestSourceExtended "Metadata Embedded"
+ pickerAdd {0.05351698399 0.1062717438 0.1750869751 0 1331 439 1332 440}
+ matteList <-1.83143407149e-24>
+ lastSelectedCryptoLayerName CryptoUserData_shotObject
+ name Cryptomatte3
+ xpos -4916
+ ypos -12972
+}
+set Nea23850 [stack 0]
+Dot {
+ name Dot1
+ xpos -4882
+ ypos -12828
+}
+push $Nea1e800
+Dot {
+ name Dot68
+ xpos -5139
+ ypos -13047
+}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 surfaceColor
+ fromInput2 {{0} B}
+ mappings "4 surfaceColor.red 0 0 rgba.red 0 0 surfaceColor.green 0 1 rgba.green 0 1 surfaceColor.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle1
+ label "\[value in1]"
+ xpos -4740
+ ypos -13057
+}
+set Nea3df70 [stack 0]
+Dot {
+ name Dot2
+ xpos -4706
+ ypos -12884
+}
+push $Nea23850
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char__bench_kick_layer_frames_v004/unh0400_0010_render_lighting_bty__char__bench_kick_layer_frames_v004.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read24
+ xpos -4514
+ ypos -13376
+}
+Dot {
+ name Dot101
+ label "    bench_kick"
+ note_font_size 80
+ xpos -4480
+ ypos -13248
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove21
+ label rgba
+ xpos -4515
+ ypos -13156
+}
+push $Nea3df70
+Merge2 {
+ inputs 2
+ operation divide
+ metainput All
+ also_merge all
+ name Merge8
+ xpos -4515
+ ypos -13051
+}
+Saturation {
+ inputs 1+1
+ saturation 0
+ name Saturation3
+ xpos -4515
+ ypos -12972
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ metainput All
+ name Merge10
+ xpos -4515
+ ypos -12888
+}
+Grade {
+ inputs 1+1
+ white 4
+ name Grade14
+ xpos -4515
+ ypos -12832
+}
+Dot {
+ name Dot102
+ xpos -4479
+ ypos -12656
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char__sun_02_layer_frames_v006/unh0400_0010_render_lighting_bty__char__sun_02_layer_frames_v006.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read23
+ xpos -4507
+ ypos -13958
+}
+Dot {
+ name Dot52
+ label "    sun_02"
+ note_font_size 80
+ xpos -4473
+ ypos -13840
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove20
+ label rgba
+ xpos -4510
+ ypos -13738
+}
+Dot {
+ name Dot53
+ xpos -4473
+ ypos -13616
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Dot_102}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char__sun_layer_frames_v006/unh0400_0010_render_lighting_bty__char__sun_layer_frames_v006.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read22
+ xpos -4507
+ ypos -14753
+}
+Dot {
+ name Dot50
+ label "    sun"
+ note_font_size 80
+ xpos -4473
+ ypos -14634
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove19
+ label rgba
+ xpos -4507
+ ypos -14523
+}
+Dot {
+ name Dot51
+ xpos -4473
+ ypos -14408
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Dot_94}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char__env_windows_layer_frames_v006/unh0400_0010_render_lighting_bty__char__env_windows_layer_frames_v006.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read21
+ xpos -4507
+ ypos -15691
+}
+Dot {
+ name Dot41
+ label "    env_windows"
+ note_font_size 80
+ xpos -4473
+ ypos -15573
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove18
+ label rgba
+ xpos -4507
+ ypos -15450
+}
+Dot {
+ name Dot42
+ xpos -4473
+ ypos -15320
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Dot_62}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+push $Ncf2e480
+Cryptomatte {
+ cryptoLayerChoice {{1} CryptoInstance CryptoUserData_shotObject}
+ manifestSourceExtended "Metadata Embedded"
+ pickerAdd {0.05351698399 0.1062717438 0.1750869751 0 1331 439 1332 440}
+ matteList <-1.83143407149e-24>
+ lastSelectedCryptoLayerName CryptoUserData_shotObject
+ name Cryptomatte2
+ xpos -4685
+ ypos -16326
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char__env_top_boost_layer_frames_v004/unh0400_0010_render_lighting_bty__char__env_top_boost_layer_frames_v004.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read20
+ xpos -4505
+ ypos -16678
+}
+Dot {
+ name Dot35
+ label "    env_top_boost"
+ note_font_size 80
+ xpos -4471
+ ypos -16542
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove17
+ label rgba
+ xpos -4505
+ ypos -16429
+}
+Grade {
+ inputs 1+1
+ channels all
+ white 0.25
+ name Grade11
+ xpos -4505
+ ypos -16332
+}
+Dot {
+ name Dot36
+ xpos -4473
+ ypos -16184
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char__env_top_layer_frames_v006/unh0400_0010_render_lighting_bty__char__env_top_layer_frames_v006.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read19
+ xpos -4507
+ ypos -17438
+}
+Dot {
+ name Dot39
+ label "    env_top"
+ note_font_size 80
+ xpos -4473
+ ypos -17316
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove16
+ label rgba
+ xpos -4507
+ ypos -17182
+}
+Dot {
+ name Dot40
+ xpos -4473
+ ypos -17048
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Dot_54}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__char__env_layer_frames_v006/unh0400_0010_render_lighting_bty__char__env_layer_frames_v006.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read18
+ xpos -4513
+ ypos -18271
+}
+Dot {
+ name Dot118
+ label "    env"
+ note_font_size 80
+ xpos -4479
+ ypos -18133
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove15
+ label rgba
+ xpos -4513
+ ypos -17975
+}
+Dot {
+ name Dot38
+ xpos -4479
+ ypos -17840
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Dot_46}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+push 0
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus16
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -17854
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Merge2_47}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus17
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -17062
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Merge2_55}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus14
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -16198
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus18
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -15334
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Merge2_63}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus22
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -14422
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Merge2_95}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus23
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -13630
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Merge2_103}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus41
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -12670
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus12
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -11494
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__char_Merge2_15}
+ addUserKnob {26 PassName -STARTLINE T bty__char}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus42
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -10534
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus38
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -9646
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus48
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -8782
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus44
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -7918
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus43
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -7006
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus47
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -6070
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus46
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -5158
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus45
+ label "<font color=white>except Alpha A"
+ xpos -3407
+ ypos -4270
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy3
+ xpos -3407
+ ypos -3460
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set_layer_frames_v005/unh0400_0010_render_lighting_bty__set_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read2
+ xpos -10400
+ ypos -17563
+}
+Dot {
+ name Dot3
+ label bty__set
+ note_font_size 150
+ xpos -10366
+ ypos -17254
+}
+Dot {
+ name Dot97
+ xpos -10366
+ ypos -15336
+}
+set Ne727810 [stack 0]
+Dot {
+ name Dot33
+ xpos -10366
+ ypos -13600
+}
+set Ne72cb90 [stack 0]
+Dot {
+ name Dot93
+ xpos -10366
+ ypos -11960
+}
+set Ne731d50 [stack 0]
+Dot {
+ name Dot100
+ xpos -10366
+ ypos -11839
+}
+set Ne736f30 [stack 0]
+Dot {
+ name Dot34
+ xpos -10366
+ ypos -3574
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set_cine__char_wrap_layer_frames_v003/unh0400_0010_render_lighting_bty__set_cine__char_wrap_layer_frames_v003.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read16
+ xpos -9520
+ ypos -4981
+}
+Dot {
+ name Dot10
+ label "    char_wrap"
+ note_font_size 80
+ xpos -9486
+ ypos -4846
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove14
+ label rgba
+ xpos -9520
+ ypos -4750
+}
+Dot {
+ name Dot11
+ xpos -9486
+ ypos -4616
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_38}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set_cine__char_rim_02_layer_frames_v003/unh0400_0010_render_lighting_bty__set_cine__char_rim_02_layer_frames_v003.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read15
+ xpos -9520
+ ypos -5777
+}
+Dot {
+ name Dot8
+ label "    char_rim_02"
+ note_font_size 80
+ xpos -9486
+ ypos -5642
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove13
+ label rgba
+ xpos -9520
+ ypos -5522
+}
+Dot {
+ name Dot9
+ xpos -9486
+ ypos -5408
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_30}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set_cine__char_rim_layer_frames_v003/unh0400_0010_render_lighting_bty__set_cine__char_rim_layer_frames_v003.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read14
+ xpos -9520
+ ypos -6549
+}
+Dot {
+ name Dot6
+ label "    char_rim"
+ note_font_size 80
+ xpos -9486
+ ypos -6414
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove12
+ label rgba
+ xpos -9520
+ ypos -6310
+}
+Dot {
+ name Dot7
+ xpos -9486
+ ypos -6200
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_22}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set__p_source_layer_frames_v005/unh0400_0010_render_lighting_bty__set__p_source_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read13
+ xpos -9520
+ ypos -7432
+}
+Dot {
+ name Dot22
+ label "    p_source"
+ note_font_size 80
+ xpos -9486
+ ypos -7321
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove11
+ label rgba
+ xpos -9520
+ ypos -7182
+}
+Dot {
+ name Dot23
+ xpos -9486
+ ypos -7064
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_86}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set__p_cast_layer_frames_v005/unh0400_0010_render_lighting_bty__set__p_cast_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read12
+ xpos -9520
+ ypos -8254
+}
+Dot {
+ name Dot20
+ label "    p_cast"
+ note_font_size 80
+ xpos -9486
+ ypos -8143
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove10
+ label rgba
+ xpos -9520
+ ypos -7983
+}
+Dot {
+ name Dot21
+ xpos -9486
+ ypos -7856
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_78}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set_cine__fill_carspot_layer_frames_v003/unh0400_0010_render_lighting_bty__set_cine__fill_carspot_layer_frames_v003.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read11
+ xpos -9520
+ ypos -9066
+}
+Dot {
+ name Dot18
+ label "    fill_carspot"
+ note_font_size 80
+ xpos -9486
+ ypos -8931
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove9
+ label rgba
+ xpos -9520
+ ypos -8772
+}
+Dot {
+ name Dot19
+ xpos -9486
+ ypos -8648
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_70}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set_cine__flash_bang_layer_frames_v003/unh0400_0010_render_lighting_bty__set_cine__flash_bang_layer_frames_v003.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read10
+ xpos -9520
+ ypos -10020
+}
+Dot {
+ name Dot89
+ label "    flash_bang"
+ note_font_size 80
+ xpos -9486
+ ypos -9885
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove8
+ label rgba
+ xpos -9520
+ ypos -9790
+}
+Grade {
+ white {{curve x1029 0.000977 2 x1040 2.195942 x1044 2.378414 x1045 256 112.58063 14.438529 1}}
+ multiply {{"(noise((frame+1)/2)+1)/2 * (1-0.2) + 0.7"}}
+ name Grade1
+ xpos -9520
+ ypos -9702
+}
+Dot {
+ name Dot90
+ xpos -9486
+ ypos -9608
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set__bounce_ground_layer_frames_v004/unh0400_0010_render_lighting_bty__set__bounce_ground_layer_frames_v004.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read9
+ xpos -9520
+ ypos -10933
+}
+Dot {
+ name Dot4
+ label "    bounce_ground"
+ note_font_size 80
+ xpos -9486
+ ypos -10788
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove7
+ label rgba
+ xpos -9520
+ ypos -10670
+}
+Dot {
+ name Dot5
+ xpos -9486
+ ypos -10544
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_14}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+push $Ne736f30
+Cryptomatte {
+ manifestSourceExtended "Metadata Embedded"
+ pickerAdd {1.103731155 1.15969944 0.13879776 1 0 309 1 310}
+ matteList "<-5.97108473777e-10>\n<1.98302817149e+34>\n<2.36207405218e+36>\n<-3.09757120716e-24>\n<2.85757539637e-35>\n<-4.22856677848e-27>\n<-3.00342082221e-28>\n<-1.24046924800e+09>\n<-2.15562050770e+24>\n<-2.21029358011e-12>\n<-1.76198921893e+22>\n<3.12670731212e-17>\n<1.57875301253e+13>\n<-1.78197838776e+16>\n<4.96030146560e+10>\n<-4.61146552774e+32>\n<1.06543617249e+01>\n<-2.17257873531e-34>\n<-1.90679420484e-05>\n<-2.88524977202e-36>\n<2.13647271763e-19>\n<3.88227532028e-22>\n<9.76982383882e-11>\n<2.73474884033e+02>\n<6.83412051868e-28>\n<9.12215512017e-07>\n<-3.36267574614e-37>\n<-6.42511625302e+25>\n<-8.33689700812e-03>\n<3.74629621547e-06>\n<1.59205252859e-15>\n<-8.83480302645e-28>\n<2.68077670400e+10>\n<6.27442461161e-25>\n<2.91135488000e+11>\n<1.61372270756e+13>\n<-1.98762609005e-18>\n<1.04969564903e-31>\n<-7.32293427684e+34>\n<-3.68538708411e-31>\n<-6.70197288902e+37>\n<1.11215305236e-26>\n<6.15005908203e+03>\n<7.52321295648e-28>\n<1.64726160000e+07>\n<-4.54000381563e+25>\n<-5.38445766843e-33>\n<4.94757586374e+24>\n<-1.39672920581e+17>\n<-1.11767322827e-12>\n<6.90238479428e+19>\n<3.03176625494e-06>\n<2.90794146224e+31>\n<-5.20283335986e+17>\n<3.47714323743e+13>\n<3.41314742168e+29>\n<5.70323661652e+37>\n<-4.22544332800e+09>\n<-2.43096974165e+32>\n<5.13354873657e+01>\n<-9.82681594905e-05>\n<1.69941360000e+08>\n<7.90531228151e-29>\n<9.28867448238e-05>\n<-2.95601552352e-03>\n<1.61721289934e-35>\n<-4.80710848731e-13>\n<2.21772228116e+29>\n<8.90950016993e+19>"
+ lastSelectedCryptoLayerName CryptoInstance
+ name Cryptomatte1
+ xpos -9955
+ ypos -11843
+}
+push $Ne731d50
+Group {
+ name PositionMatte
+ tile_color 0xca00e0ff
+ xpos -10038
+ ypos -11964
+}
+ Input {
+  inputs 0
+  name Input
+  xpos -370
+  ypos -298
+ }
+add_layer {pw pw.red pw.green pw.blue pw.alpha pw.r pw.g pw.b}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 pw
+  fromInput2 {{0} B}
+  mappings "4 pw.red 0 0 rgba.red 0 0 pw.green 0 1 rgba.green 0 1 pw.blue 0 2 rgba.blue 0 2 pw.alpha 0 3 rgba.alpha 0 3"
+  name Shuffle8
+  xpos -370
+  ypos -272
+ }
+ Add {
+  value {-19.8579 -9.98436 -3.53907 0}
+  name Add1
+  xpos -370
+  ypos -246
+ }
+ ColorMatrix {
+  matrix {
+      {15.64500046 0 0}
+      {0 8.400000572 0}
+      {0 0 10.5}
+    }
+  invert true
+  name Matrix
+  xpos -370
+  ypos -208
+ }
+ Expression {
+  temp_name0 ex1
+  temp_expr0 "hypot(hypot(max(abs(r),0), max(abs(g),0)), max(abs(b),0))"
+  expr3 1-(0+ex1)
+  name Expression1
+  xpos -370
+  ypos -182
+ }
+ Output {
+  name Output1
+  xpos -370
+  ypos -156
+ }
+end_group
+Invert {
+ name Invert1
+ xpos -9872
+ ypos -11970
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set_cine__bench_kick_layer_frames_v003/unh0400_0010_render_lighting_bty__set_cine__bench_kick_layer_frames_v003.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read8
+ xpos -9520
+ ypos -12279
+}
+Dot {
+ name Dot31
+ label "    bench_kick"
+ note_font_size 80
+ xpos -9486
+ ypos -12159
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove6
+ label rgba
+ xpos -9520
+ ypos -12117
+}
+Grade {
+ white 2
+ name Grade6
+ xpos -9520
+ ypos -12044
+}
+Grade {
+ inputs 1+1
+ white 0.000977
+ name Grade7
+ xpos -9520
+ ypos -11964
+}
+Grade {
+ inputs 1+1
+ channels all
+ white 10
+ multiply 2
+ mix 0.272
+ name Grade10
+ xpos -9519
+ ypos -11849
+}
+Dot {
+ name Dot32
+ xpos -9486
+ ypos -11672
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set__sun_02_layer_frames_v005/unh0400_0010_render_lighting_bty__set__sun_02_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read7
+ xpos -9520
+ ypos -13033
+}
+Dot {
+ name Dot26
+ label "    sun_02"
+ note_font_size 80
+ xpos -9486
+ ypos -12922
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove5
+ label rgba
+ xpos -9520
+ ypos -12812
+}
+Dot {
+ name Dot27
+ xpos -9486
+ ypos -12680
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_102}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+push $Ne72cb90
+Group {
+ name PositionMatte1
+ tile_color 0xca00e0ff
+ xpos -9858
+ ypos -13604
+}
+ Input {
+  inputs 0
+  name Input
+  xpos -480
+  ypos -370
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 pw
+  fromInput2 {{0} B}
+  mappings "4 pw.red 0 0 rgba.red 0 0 pw.green 0 1 rgba.green 0 1 pw.blue 0 2 rgba.blue 0 2 pw.alpha 0 3 rgba.alpha 0 3"
+  name Shuffle11
+  xpos -480
+  ypos -344
+ }
+ Grade {
+  blackpoint {0 0 -2.1 0}
+  blackpoint_panelDropped true
+  whitepoint {1 1 10 1}
+  whitepoint_panelDropped true
+  name Grade15
+  xpos -480
+  ypos -318
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.alpha 0 3 rgba.blue 0 2 rgba.blue 0 2"
+  name Shuffle12
+  xpos -480
+  ypos -292
+ }
+ Output {
+  name Output1
+  xpos -480
+  ypos -266
+ }
+end_group
+Invert {
+ name Invert3
+ xpos -9670
+ ypos -13610
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set__sun_layer_frames_v005/unh0400_0010_render_lighting_bty__set__sun_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read6
+ xpos -9520
+ ypos -13928
+}
+Dot {
+ name Dot24
+ label "    sun"
+ note_font_size 80
+ xpos -9486
+ ypos -13816
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove4
+ label rgba
+ xpos -9520
+ ypos -13690
+}
+Grade {
+ inputs 1+1
+ white 0.12
+ name Grade2
+ xpos -9520
+ ypos -13604
+}
+Dot {
+ name Dot25
+ xpos -9486
+ ypos -13472
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_94}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set__env_windows_layer_frames_v005/unh0400_0010_render_lighting_bty__set__env_windows_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read5
+ xpos -9520
+ ypos -14720
+}
+Dot {
+ name Dot16
+ label "    env_windows"
+ note_font_size 80
+ xpos -9486
+ ypos -14599
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove3
+ label rgba
+ xpos -9520
+ ypos -14508
+}
+Dot {
+ name Dot17
+ xpos -9486
+ ypos -14384
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_62}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+push $Ne727810
+Group {
+ name PositionMatte2
+ tile_color 0xca00e0ff
+ xpos -9869
+ ypos -15340
+}
+ Input {
+  inputs 0
+  name Input
+  xpos -480
+  ypos -370
+ }
+add_layer {pc pc.red pc.green pc.blue pc.alpha}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 pc
+  fromInput2 {{0} B}
+  mappings "4 pc.red 0 0 rgba.red 0 0 pc.green 0 1 rgba.green 0 1 pc.blue 0 2 rgba.blue 0 2 pc.alpha 0 3 rgba.alpha 0 3"
+  name Shuffle11
+  xpos -480
+  ypos -344
+ }
+ Grade {
+  blackpoint {91.85849 0 -0.2 17.850445}
+  blackpoint_panelDropped true
+  whitepoint {11 12 13.3 4}
+  whitepoint_panelDropped true
+  multiply_panelDropped true
+  name Grade15
+  xpos -480
+  ypos -318
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.alpha 0 3 rgba.blue 0 2 rgba.blue 0 2"
+  name Shuffle12
+  xpos -480
+  ypos -292
+ }
+ Output {
+  name Output1
+  xpos -480
+  ypos -266
+ }
+end_group
+Invert {
+ name Invert2
+ xpos -9688
+ ypos -15346
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set__env_top_layer_frames_v005/unh0400_0010_render_lighting_bty__set__env_top_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read4
+ xpos -9520
+ ypos -15602
+}
+Dot {
+ name Dot14
+ label "    env_top"
+ note_font_size 80
+ xpos -9486
+ ypos -15489
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove2
+ label rgba
+ xpos -9520
+ ypos -15406
+}
+Grade {
+ inputs 1+1
+ white 0.0625
+ name Grade4
+ xpos -9520
+ ypos -15340
+}
+Dot {
+ name Dot15
+ xpos -9486
+ ypos -15176
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_54}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Read {
+ inputs 0
+ file_type exr
+ file ../lighting_render_layers/unh0400_0010_render_lighting_bty__set__env_layer_frames_v005/unh0400_0010_render_lighting_bty__set__env_layer_frames_v005.1037.exr
+ format "2088 1064 0 0 2088 1064 1 "
+ origset true
+ name Read3
+ xpos -9520
+ ypos -16287
+}
+Dot {
+ name Dot12
+ label "    env"
+ note_font_size 80
+ xpos -9486
+ ypos -16146
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove1
+ label rgba
+ xpos -9520
+ ypos -16052
+}
+Dot {
+ name Dot13
+ xpos -9486
+ ypos -15968
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Dot_46}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+push 0
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus4
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -15982
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_47}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus5
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -15190
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_55}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus6
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -14398
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_63}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus10
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -13486
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_95}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus11
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -12694
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_103}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus13
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -11686
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -10558
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_15}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus39
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -9622
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus7
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -8662
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_71}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus8
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -7870
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_79}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus9
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -7078
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_87}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus1
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -6214
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_23}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus2
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -5422
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_31}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Merge2 {
+ inputs 2
+ operation plus
+ metainput All
+ Achannels rgb
+ also_merge all
+ name Plus3
+ label "<font color=white>except Alpha A"
+ xpos -8420
+ ypos -4630
+ addUserKnob {20 User}
+ addUserKnob {26 NodeID -STARTLINE T bty__set_Merge2_39}
+ addUserKnob {26 PassName -STARTLINE T bty__set}
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy1
+ xpos -8420
+ ypos -3584
+}
+Dot {
+ name Dot37
+ xpos -8386
+ ypos -1190
+}
+Merge2 {
+ inputs 2
+ bbox B
+ also_merge all
+ name Merge2
+ xpos -3407
+ ypos -1194
+}
+Merge2 {
+ inputs 2
+ bbox B
+ also_merge all
+ name Merge17
+ xpos 1411
+ ypos -1167
+}
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 white -1 -1 rgba.alpha 0 3"
+ name Shuffle3
+ xpos 1411
+ ypos -979
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove37
+ label rgba
+ xpos 1411
+ ypos -853
+}
+Remove {
+ operation keep
+ channels rgba
+ name Remove36
+ label rgba
+ xpos 1411
+ ypos 345
+}
+Merge2 {
+ inputs 2
+ bbox B
+ name Merge1
+ xpos 1411
+ ypos 495
+}
+Group {
+ name MegaSaturation1
+ tile_color 0xc9ae06ff
+ xpos 1411
+ ypos 1149
+ addUserKnob {20 User l MegaSaturation}
+ addUserKnob {7 saturation R 0 4}
+ saturation 1.4
+}
+ Input {
+  inputs 0
+  name Input
+  xpos 1155
+  ypos 590
+ }
+ Clamp {
+  maximum_enable false
+  name Clamp10
+  xpos 1155
+  ypos 630
+ }
+set Ndb092b0 [stack 0]
+ Colorspace {
+  channels all
+  illuminant_in ACES
+  primary_in ACES
+  colorspace_out HSV
+  illuminant_out ACES
+  primary_out ACES
+  name Colorspace5
+  label "\[knob colorspace_in] \[knob illuminant_in] \[knob primary_in]\\n\[knob colorspace_out] \[knob illuminant_out] \[knob primary_out]"
+  xpos 1155
+  ypos 673
+ }
+ Dot {
+  name Dot28
+  xpos 1189
+  ypos 766
+ }
+set Ndb33f40 [stack 0]
+ Multiply {
+  channels rgb
+  value {1 {parent.saturation} 1 1}
+  name Multiply2
+  xpos 715
+  ypos 762
+ }
+ Dot {
+  name Dot37
+  xpos 749
+  ypos 982
+ }
+ SoftClip {
+  conversion "logarithmic compress"
+  softclip_min 0.5
+  name SoftClip2
+  xpos 935
+  ypos 978
+ }
+push $Ndb33f40
+ Copy {
+  inputs 2
+  from0 rgba.green
+  to0 rgba.green
+  from1 -rgba.red
+  to1 -rgba.red
+  name Copy6
+  xpos 1155
+  ypos 972
+ }
+ Colorspace {
+  channels all
+  colorspace_in HSV
+  illuminant_in ACES
+  primary_in ACES
+  illuminant_out ACES
+  primary_out ACES
+  name Colorspace8
+  label "\[knob colorspace_in] \[knob illuminant_in] \[knob primary_in]\\n\[knob colorspace_out] \[knob illuminant_out] \[knob primary_out]"
+  xpos 1155
+  ypos 1046
+ }
+ Dot {
+  name Dot43
+  xpos 1193
+  ypos 1149
+ }
+set Ndb7ed40 [stack 0]
+push $Ndb7ed40
+ Dot {
+  name Dot2
+  xpos 1354
+  ypos 1149
+ }
+ Saturation {
+  channels all
+  saturation 0
+  name Saturation1
+  xpos 1320
+  ypos 1207
+ }
+ Merge2 {
+  inputs 2
+  operation divide
+  also_merge all
+  name Merge9
+  xpos 1159
+  ypos 1213
+ }
+push $Ndb092b0
+ Dot {
+  name Dot1
+  xpos 1712
+  ypos 640
+ }
+ Saturation {
+  channels all
+  saturation 0
+  name Saturation2
+  xpos 1687
+  ypos 1255
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  also_merge all
+  name Multiply
+  xpos 1159
+  ypos 1261
+ }
+ Output {
+  name Output1
+  xpos 1160
+  ypos 1439
+ }
+end_group
+Grade {
+ channels all
+ multiply {1 0.900833 0.517049 1}
+ multiply_panelDropped true
+ black_clamp false
+ name Grade3
+ xpos 1411
+ ypos 1207
+}
+Group {
+ name FinalGlow
+ tile_color 0xed8f38ff
+ note_font_color 0xff
+ xpos 1411
+ ypos 1435
+ addUserKnob {20 User l Glow}
+ addUserKnob {41 glowmultiply l Glow T Grade_glow_intensity.multiply}
+}
+ Constant {
+  inputs 0
+  channels rgb
+  format "1024 1024 0 0 1024 1024 1 square_1k"
+  name Constant1
+  xpos 494
+  ypos 340
+  postage_stamp false
+ }
+set Ndbe8d10 [stack 0]
+ Dot {
+  name Dot127
+  xpos 820
+  ypos 344
+ }
+ Expression {
+  temp_name0 in
+  temp_expr0 1
+  temp_name1 centerX
+  temp_expr1 width/2
+  temp_name2 centerY
+  temp_expr2 height/2
+  channel0 rgb
+  expr0 "clamp ((in*1/(pow2(hypot(x-centerX,y-centerY)))),0,in*in)"
+  name myGlow3
+  xpos 786
+  ypos 392
+ }
+ Expression {
+  temp_name0 toe
+  temp_expr0 0.00003
+  expr0 r>toe?r:0
+  expr1 g>toe?g:0
+  expr2 b>toe?b:0
+  name toeGlow_expr1
+  xpos 786
+  ypos 471
+ }
+set Ndc05a60 [stack 0]
+ Grade {
+  channels rgba
+  white 60
+  gamma 0.6
+  black_clamp false
+  name Grade15
+  xpos 904
+  ypos 471
+ }
+ Dot {
+  name Dot128
+  xpos 938
+  ypos 561
+ }
+push $Ndbe8d10
+ Rectangle {
+  opacity 0.06
+  area {{width/2} {width/2} {width/2+1} {width/2+1}}
+  color 256
+  name Rectangle1
+  xpos 494
+  ypos 411
+ }
+set Ndc2b2d0 [stack 0]
+ Sparkles {
+  position {{width/2} {height/2}}
+  size 500
+  anamorphic 2
+  ray_nb 5
+  spark_falloff 0
+  ray_falloff 0
+  seed 33
+  brightness 0.5
+  name Sparkles4
+  xpos 555
+  ypos 457
+ }
+push $Ndc2b2d0
+ Sparkles {
+  position {{width/2 x1008 1496} {height/2 x1008 468}}
+  size 500
+  anamorphic 2
+  ray_nb 5
+  spark_falloff 0
+  ray_falloff 0
+  seed 300
+  brightness 0.5
+  name Sparkles5
+  xpos 420
+  ypos 458
+ }
+ Dissolve {
+  inputs 2
+  channels rgba
+  which 0.595
+  name Dissolve_sparkleGlow1
+  xpos 495
+  ypos 494
+ }
+ Transform {
+  scale 0.3
+  center {512 512}
+  name Transform6
+  xpos 495
+  ypos 557
+ }
+ Grade {
+  white 1.5
+  black_clamp false
+  name Grade_star1
+  xpos 608
+  ypos 557
+ }
+push $Ndc05a60
+ Merge2 {
+  inputs 2+1
+  operation plus
+  maskChannelMask rgba.red
+  name Merge_starMix1
+  xpos 786
+  ypos 557
+ }
+ Shuffle {
+  alpha red
+  name Shuffle8
+  xpos 786
+  ypos 676
+ }
+ Input {
+  inputs 0
+  name Input
+  xpos 1338
+  ypos 488
+ }
+set Ndcaeac0 [stack 0]
+ Reformat {
+  type scale
+  scale {0.402 0.6}
+  resize distort
+  filter notch
+  black_outside true
+  pbb true
+  name Reformat_quality1
+  xpos 1124
+  ypos 488
+ }
+ Grade {
+  gamma 0.6
+  black_clamp false
+  name Grade16
+  xpos 1124
+  ypos 601
+ }
+ Convolve2 {
+  inputs 2
+  channels rgb
+  useGPUIfAvailable false
+  use_input_channels true
+  normalize false
+  name ConvolveGlow
+  xpos 1124
+  ypos 676
+ }
+ Grade {
+  white 0.0005
+  multiply 2.5
+  name Grade_glow_intensity
+  xpos 1124
+  ypos 717
+ }
+ Reformat {
+  type scale
+  scale {2.487562189 1.666666667}
+  resize distort
+  filter notch
+  black_outside true
+  name Reformat3
+  xpos 1124
+  ypos 750
+ }
+push $Ndcaeac0
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge1
+  xpos 1338
+  ypos 890
+ }
+ Output {
+  name Output1
+  xpos 1338
+  ypos 1009
+ }
+end_group
+Group {
+ name ChromaticAberration
+ tile_color 0x3383b2ff
+ xpos 1411
+ ypos 1506
+ addUserKnob {20 User l "Chromatic Ab"}
+ addUserKnob {7 abMult l "Chromatic Ab"}
+ abMult 0.25
+}
+ Input {
+  inputs 0
+  name Input
+  xpos 151
+  ypos 151
+ }
+set Neda1cc0 [stack 0]
+ Reformat {
+  type scale
+  scale 1.1
+  resize none
+  pbb true
+  name Reformat1
+  xpos 419
+  ypos 151
+ }
+ Dot {
+  name Dot130
+  xpos 453
+  ypos 322
+ }
+set Nedb6720 [stack 0]
+ Dot {
+  name Dot3
+  xpos 563
+  ypos 322
+ }
+set Nedbb830 [stack 0]
+ Dot {
+  name Dot2
+  xpos 673
+  ypos 322
+ }
+ Expression {
+  expr0 0
+  expr1 0
+  expr2 b
+  name blue1
+  xpos 639
+  ypos 453
+ }
+ Transform {
+  scale {{1-((1-T_driveAb.scale)*1.8)}}
+  center {{T_driveAb.center.x} {T_driveAb.center.y}}
+  black_outside false
+  name Transform3
+  xpos 639
+  ypos 580
+ }
+push 0
+push $Nedbb830
+ Expression {
+  expr0 r
+  expr1 0
+  expr2 0
+  name red1
+  xpos 529
+  ypos 453
+ }
+ Transform {
+  scale {{1+((1-T_driveAb.scale)*2)}}
+  center {{T_driveAb.center.x} {T_driveAb.center.y}}
+  black_outside false
+  name Transform9
+  label "\[value parent.T_driveAb.name]"
+  xpos 529
+  ypos 574
+ }
+ Dot {
+  name Dot5
+  xpos 563
+  ypos 638
+ }
+push $Nedb6720
+ Expression {
+  expr0 0
+  expr1 g
+  expr2 0
+  name green1
+  xpos 419
+  ypos 453
+ }
+ Transform {
+  center {{T_driveAb.center.x} {T_driveAb.center.y}}
+  name Transform13
+  xpos 419
+  ypos 574
+ }
+ Dot {
+  name Dot4
+  xpos 453
+  ypos 686
+ }
+ Merge2 {
+  inputs 3+1
+  operation plus
+  Achannels {rgba.red rgba.green rgba.blue -rgba.alpha}
+  name Merge20
+  xpos 639
+  ypos 682
+ }
+ Reformat {
+  type scale
+  scale 0.909
+  resize none
+  pbb true
+  name Reformat2
+  xpos 639
+  ypos 875
+ }
+push $Neda1cc0
+ Dissolve {
+  inputs 2
+  which 0.8
+  name Dissolve1
+  xpos 151
+  ypos 869
+ }
+ Output {
+  name Output1
+  xpos 151
+  ypos 956
+ }
+push $Nedb6720
+ Dot {
+  name Dot1
+  xpos 330
+  ypos 322
+ }
+ Transform {
+  scale {{1+(abMult/500)}}
+  center {{input.width/2} {input.height/2}}
+  black_outside false
+  name T_driveAb
+  label driver
+  xpos 296
+  ypos 446
+ }
+end_group
+Reformat {
+ format "2048 1024 0 0 2048 1024 1 project"
+ resize none
+ name Reformat3
+ xpos 1411
+ ypos 2115
+}
+Write {
+ file ../exr_sequences/unh0400_0010_lighting.####.exr
+ file_type exr
+ compression "Zip (16 scanlines)"
+ first_part rgba
+ colorspace aces_interchange
+ version 11
+ ocioColorspace scene_linear
+ display "sRGB - Display"
+ view "ACES 1.0 - SDR Video"
+ name Write1
+ xpos 1411
+ ypos 2319
+}
